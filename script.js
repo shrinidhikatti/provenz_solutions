@@ -1,3 +1,24 @@
+// Theme Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const body = document.body;
+
+// Check for saved theme preference or default to dark
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    body.classList.add('light-mode');
+}
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+
+    // Save preference to localStorage
+    if (body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
